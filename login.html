@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled" />
+    <title>Log in - Join</title>
+
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/icons/favicon-package/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/icons/favicon-package/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/icons/favicon-package/favicon-16x16.png"
+    />
+    <link
+      rel="manifest"
+      href="./assets/icons/favicon-package/site.webmanifest"
+    />
+    <link
+      rel="mask-icon"
+      href="./assets/icons/favicon-package/safari-pinned-tab.svg"
+      color="#29abe2"
+    />
+    <meta name="msapplication-TileColor" content="#29abe2" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style/fonts.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/notification.css" />
+    <link rel="stylesheet" href="./style/login-page.css" />
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="./script/data.js"></script>
+    <script src="./script/script.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="start-logo-modal">
+        <div class="overlay"></div>
+        <picture class="start-logo">
+          <img
+            class="icon-size us-none"
+            draggable="false"
+            src="./assets/icons/logo-light.svg"
+            alt="logo join"
+          />
+        </picture>
+      </div>
+      <div class="header-container"></div>
+    </header>
+
+    <div
+      class="d-none"
+      data-include-html="./assets/templates/notification.html"
+    ></div>
+
+    <main class="main-login-container">
+      <div class="side-spacing">
+        <form class="card-container">
+          <div class="headline-container">
+            <h1 class="headline">Log in</h1>
+            <div class="devider-container-1">
+              <div class="devider-line-blue"></div>
+            </div>
+          </div>
+
+          <div class="login-card">
+            <div
+              class="login-input-container"
+              name="login-form"
+              id="login_form"
+            >
+              <div class="input-box" data-container="input">
+                <input
+                  class="input-content"
+                  id="email_input"
+                  type="email"
+                  data-input-type="email"
+                  data-input-required="true"
+                  placeholder="Email"
+                />
+
+                <label for="email_input" class="icon-24 label-img">
+                  <picture>
+                    <img
+                      class="icon-size us-none"
+                      draggable="false"
+                      src="./assets/icons/mail.svg"
+                      alt="email"
+                    />
+                  </picture>
+                </label>
+
+                <div class="input-required us-none" name="error-message" hidden>
+                  This field is required
+                </div>
+              </div>
+
+              <div class="input-box" data-container="input">
+                <input
+                  class="input-content"
+                  id="password_input"
+                  type="password"
+                  data-input-type="password"
+                  data-input-required="true"
+                  placeholder="Password"
+                />
+
+                <label for="password_input">
+                  <div class="icon-24 label-img">
+                    <img
+                      class="icon-size us-none"
+                      draggable="false"
+                      src="./assets/icons/lock.svg"
+                      alt="password"
+                    />
+                  </div>
+
+                  <div
+                    class="eye-btn"
+                    data-label-icon="eye"
+                    style="display: none"
+                  >
+                    <label for="pwd_visible" class="icon-24 pwd-icon-container">
+                      <input
+                        class="d-none"
+                        id="pwd_visible"
+                        type="checkbox"
+                        data-toggle-img="eye"
+                      />
+
+                      <div class="pwd-icon icon-24">
+                        <img
+                          class="icon-size us-none box-default"
+                          draggable="false"
+                          src="./assets/icons/visibility-off.svg"
+                          alt="password visibility on"
+                        />
+                        <img
+                          class="icon-size us-none box-active"
+                          draggable="false"
+                          src="./assets/icons/visibility-on.svg"
+                          alt="password visibility on"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                </label>
+
+                <div class="input-required us-none" name="error-message" hidden>
+                  Wrong password Ups! Try again.
+                </div>
+                <div class="login-error us-none" id="error_message" hidden>
+                  Wrong email/password combination. Try again.
+                </div>
+              </div>
+            </div>
+
+            <div class="link-checkbox-container">
+              <a
+                class="login-links a-link us-none"
+                href="./forgot-password.html"
+              >
+                Forgot my password
+              </a>
+              <div class="checkbox-container us-none" data-container="checkbox">
+                <label for="remember_me" class="checkbox-icon c-pointer">
+                  <input
+                    class="d-none"
+                    id="remember_me"
+                    type="checkbox"
+                    data-input-required="false"
+                    data-input-type="checkbox"
+                  />
+                  <div
+                    class="icon-24 checkbox-icon-container"
+                    name="checkbox-container"
+                  >
+                    <img
+                      class="icon-size us-none box-default"
+                      draggable="false"
+                      src="./assets/icons/checkbox-outline-default.svg"
+                      alt="checkbox default"
+                    />
+                    <img
+                      class="icon-size us-none box-active"
+                      draggable="false"
+                      src="./assets/icons/checkbox-outline-active.svg"
+                      alt="checkbox active"
+                    />
+                  </div>
+                </label>
+                <div class="checkbox-desc">Remember me</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="login-btn-container us-none">
+            <button
+              class="user-login-btn flex-box-centered c-pointer"
+              id="user_login_btn"
+            >
+              <div class="login-btn-font">Log in</div>
+            </button>
+            <button
+              class="guest-login-btn flex-box-centered c-pointer"
+              id="guest_login_btn"
+            >
+              <div class="login-btn-font">Guest Log in</div>
+            </button>
+          </div>
+        </form>
+
+        <div class="signup-container">
+          <div class="signup-desc">Not a Join user?</div>
+          <a class="signup-btn us-none" href="./sign-up.html">
+            <div class="signup-font">Sign up</div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="flex-box-centered">
+      <div class="footer-container">
+        <a class="footer-links" href="./privacy-policy.html" target="_blank"
+          >Privacy Policy</a
+        >
+        <a class="footer-links" href="./legal-notice.html" target="_blank"
+          >Legal notice</a
+        >
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="./script/login.js"></script>
+  </body>
+</html>

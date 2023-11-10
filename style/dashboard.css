@@ -1,0 +1,364 @@
+/* ================================================== */
+.greeting-container {
+  /* height: calc(100vh - var(--mobile-nav-height) * 2); */
+  /* width: 100%; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.greeting-font {
+  font-size: var(--font-size-xxxl);
+  font-weight: var(--font-weight-n);
+  line-height: var(--line-height-6);
+  color: var(--text-color-senary);
+  text-wrap: balance;
+}
+
+.greeting-user {
+  font-size: var(--font-size-xxxl);
+  font-weight: var(--font-weight-xb);
+  line-height: var(--line-height-7);
+  color: var(--text-color-quinary);
+  text-transform: capitalize;
+}
+
+.headline-container {
+  padding-top: 48px;
+  width: fit-content;
+}
+
+.section-headline {
+  font-size: var(--font-size-xxxl);
+  font-weight: var(--font-weight-xb);
+  line-height: var(--line-height-7);
+  color: var(--text-color-primary);
+  text-wrap: nowrap;
+}
+
+.section-subheadline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-n);
+  line-height: var(--line-height-4);
+  color: var(--text-color-senary);
+}
+
+/* Grid container */
+.card-section-grid {
+  display: flex;
+}
+
+.summary-container {
+  box-sizing: content-box;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  width: 100%;
+  min-width: 270px;
+  min-height: 300px;
+  max-height: 562px;
+
+  display: grid;
+  gap: 24px;
+}
+
+.summary-card-1,
+.summary-card-2,
+.summary-card-3,
+.summary-card-4,
+.summary-card-5,
+.summary-card-6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+  width: 100%;
+
+  text-align: center;
+  background-color: var(--background-color-senary);
+  border-radius: var(--border-radius-4);
+  box-shadow: var(--box-shadow-3);
+  cursor: pointer;
+}
+
+.summary-card-1 {
+  grid-area: 1 / 1 / 2 / 4;
+}
+
+.summary-card-2 {
+  grid-area: 1 / 4 / 2 / 7;
+}
+
+.summary-card-3 {
+  grid-area: 2 / 1 / 3 / 7;
+}
+
+.summary-card-4 {
+  grid-area: 3 / 1 / 4 / 3;
+}
+
+.summary-card-5 {
+  grid-area: 3 / 3 / 4 / 5;
+}
+
+.summary-card-6 {
+  grid-area: 3 / 5 / 4 / 7;
+}
+
+/* Card Hover Effects */
+.card-hover:hover,
+.card-hover:hover *,
+.card-hover:hover .filter-invert,
+.card-hover:hover .icon-circle-dark {
+  transition: all 225ms ease-in-out;
+}
+
+.card-hover:hover {
+  background-color: var(--background-color-quinary);
+  box-shadow: var(--box-shadow-4);
+  transform: scale(1.02);
+  transition: all ease 255ms;
+}
+
+.card-hover:hover * {
+  color: var(--text-color-nonary);
+}
+
+.card-hover:hover .icon-circle-dark {
+  background-color: var(--background-color-senary);
+}
+
+.card-hover:hover .filter-invert {
+  filter: invert(1) !important;
+}
+
+.summary-card-1:hover,
+.summary-card-2:hover {
+  transform: scale(1.03);
+}
+
+.summary-card-4:hover,
+.summary-card-5:hover,
+.summary-card-6:hover {
+  transform: scale(1.05);
+}
+
+/* === Summary Card Styling === */
+.card-content-1 {
+  min-width: 54px;
+  max-width: 83px;
+}
+
+.card-num {
+  font-size: var(--font-size-xxxl);
+  font-weight: var(--font-weight-b);
+  line-height: var(--line-height-7);
+  color: var(--text-color-primary);
+}
+
+.card-desc {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-n);
+  line-height: var(--line-height-2);
+  color: var(--text-color-senary);
+  word-break: break-word;
+}
+
+.card-content-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.card-content-2-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.card-content-2-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 8px;
+}
+
+.card-content-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-circle {
+  --icon-size: 40px;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  border-radius: var(--border-radius-rounded);
+}
+
+.deadline-date {
+  font-size: var(--font-size-n);
+  font-weight: var(--font-weight-xb);
+  line-height: var(--line-height-3);
+  color: var(--text-color-senary);
+}
+
+.deadline-subtitle {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-n);
+  line-height: var(--line-height-2);
+  color: var(--text-color-senary);
+}
+
+.urgent {
+  background-color: var(--priority-color-urgent);
+}
+
+.icon-circle-dark {
+  background-color: var(--background-color-quinary);
+}
+
+.devider-container-1 {
+  height: 3px;
+  width: 90px;
+}
+
+.devider-container-2 {
+  height: 68px;
+  width: 2px;
+}
+
+/*================================================================================================= */
+/* added from BR */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-9);
+  z-index: 1;
+  opacity: 1;
+  transition: 1s ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+}
+
+.overlay.end {
+  z-index: -1;
+}
+
+.greeting-desktop {
+  display: none;
+}
+
+
+
+/* === MEDIA QUERIES === */
+@media (max-width: 420px) {
+  .summary-card-1,
+  .summary-card-2,
+  .summary-card-3,
+  .summary-card-4,
+  .summary-card-5,
+  .summary-card-6 {
+    padding: 12px 0;
+  }
+
+  .card-num {
+    font-size: var(--font-size-xxl);
+    line-height: var(--line-height-6);
+  }
+
+  .card-desc {
+    font-size: var(--font-size-s);
+  }
+
+  .card-content-2 {
+    gap: 8px;
+  }
+
+  .card-content-2-left {
+    gap: 2px;
+  }
+}
+
+@media (min-width: 768px) {
+  .headline-container,
+  .section-subheadline {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .headline-container {
+    padding-top: 110px;
+  }
+
+  .section-subheadline {
+    flex-direction: row-reverse;
+  }
+
+  .devider-container-1 {
+    height: 59px;
+    width: 3px;
+  }
+
+  .overlay.hidden {
+    position: unset;
+    opacity: 1;
+    padding-left: 80px;
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .side-spacing {
+    height: 100%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .greeting-desktop {
+    display: block;
+  }
+
+  .side-spacing {
+    height: 100%;
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+
+  .summary-container {
+    max-width: 560px;
+    column-gap: 28px;
+    row-gap: 32px;
+  }
+
+  .greeting-container {
+    display: flex;
+    width: 50%;
+    padding-left: 80px;
+    text-align: start;
+  }
+
+  .summary-card-1,
+  .summary-card-2,
+  .summary-card-3,
+  .summary-card-4,
+  .summary-card-5,
+  .summary-card-6 {
+    padding: 25px 0;
+  }
+}

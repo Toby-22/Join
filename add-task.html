@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Task - Join</title>
+
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/icons/favicon-package/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/icons/favicon-package/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/icons/favicon-package/favicon-16x16.png"
+    />
+    <link
+      rel="manifest"
+      href="./assets/icons/favicon-package/site.webmanifest"
+    />
+    <link
+      rel="mask-icon"
+      href="./assets/icons/favicon-package/safari-pinned-tab.svg"
+      color="#29abe2"
+    />
+    <meta name="msapplication-TileColor" content="#29abe2" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style/fonts.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/navigation.css" />
+    <link rel="stylesheet" href="./style/notification.css" />
+    <link rel="stylesheet" href="./style/add-task.css" />
+
+    <!-- Scripts -->
+    <script src="./script/data.js"></script>
+    <script src="./script/script.js"></script>
+    <script src="./script/add-task.js"></script>
+    <script src="./script/templates.js"></script>
+    <script src="./script/navigation.js"></script>
+  </head>
+
+  <body onload="renderAddTaskPage()">
+    <header
+      data-include-html="./assets/templates/header-template.html"
+    ></header>
+    <aside data-include-html="./assets/templates/nav-template.html"></aside>
+    <div
+      class="d-none"
+      data-include-html="./assets/templates/notification.html"
+    ></div>
+
+    <main class="main-container add-task-height">
+      <div class="side-spacing">
+        <h2 class="headline">Add Task</h2>
+
+        <div data-include-html="./assets/templates/task-form.html"></div>
+      </div>
+    </main>
+  </body>
+</html>

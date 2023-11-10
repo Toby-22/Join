@@ -1,0 +1,104 @@
+<form id="addTaskForm" onsubmit="addTask(); return false;">
+    <div id="form-content" class="form-content">
+        <div class="left-container">
+            <!--Eingabefeld für Titel des neuen Tasks-->
+            <div class="dflex-column">
+                <label for="titel-field" class="pad-bot8px" required>Title</label>
+                <input class="input-field" type="text" placeholder="Enter a title" id="titel-field" required />
+            </div>
+            <!--Eingabefeld für Beschreibung des neuen Tasks-->
+            <div class="dflex-column">
+                <label for="description-field" class="pad-bot8px">Description</label>
+                <textarea class="textarea-container input-field" id="description-field" cols="1" rows="4"
+                    placeholder="Enter a Description" required></textarea>
+            </div>
+            <!--Auswahl Assignee-->
+            <div class="dflex-column">
+                <label class="pad-bot8px" for="assignee-field">Assigned to</label>
+                <div class="input-field background-white assignee-field">
+                    <label id="assignee" class="input-assignee" onclick="renderContacts()">Select contacts to
+                        assign</label>
+                    <button type="button" class="drop-down-button" onclick="renderContacts()">
+                        <img src="./assets/icons/caret-down-solid.svg" />
+                    </button>
+                </div>
+                <div class="assignee-field-extend dnone" id="contacts"></div>
+            </div>
+        </div>
+        <div id="middle-line" class="middle-line marg-20"></div>
+        <div class="right-container">
+            <!--Auswahl der Priorität des Tasks-->
+            <div class="dflex-column">
+                <label for="prio-buttons" class="pad-bot8px">Prio</label>
+                <div class="prio-container" id="prio-buttons">
+                    <div class="dflex-row prio-fields" id="prio-urgent" onclick="markPrioField('urgent')">
+                        Urgent
+                        <div class="prio-icon-container">
+                            <img class="icon-size" id="logo-urgent" src="./assets/icons/prio-urgent-orange.svg" />
+                        </div>
+                    </div>
+                    <div class="dflex-row prio-fields" id="prio-medium" onclick="markPrioField('medium')">
+                        Medium
+                        <div class="prio-icon-container">
+                            <img class="icon-size" id="logo-medium" src="./assets/icons/prio-medium-yellow.svg" />
+                        </div>
+                    </div>
+                    <div class="dflex-row prio-fields" id="prio-low" onclick="markPrioField('low')">
+                        Low
+                        <div class="prio-icon-container">
+                            <img class="icon-size" id="logo-low" src="./assets/icons/prio-low-green.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Eingabe Datum des Tasks-->
+            <div class="dflex-column">
+                <label for="date-field" class="pad-bot8px">Due date</label>
+                <input class="input-field" type="date" id="date-field" placeholder="dd/mm/yyyy" required />
+            </div>
+            <!--Auswahl der Kategorie des Tasks-->
+            <div class="dflex-column">
+                <label class="pad-bot8px">Category</label>
+                <div class="input-field background-white assignee-field">
+                    <label id="category" class="input-assignee" onclick="dropDownCategory()">Select task
+                        category</label>
+                    <button id="drop-button" type="button" class="drop-down-button" onclick="dropDownCategory()">
+                        <img src="./assets/icons/caret-down-solid.svg" />
+                    </button>
+                </div>
+                <div class="category-field-extend d-none" id="categories"></div>
+            </div>
+            <!--Anlage Subtask-->
+            <div class="dflex-column">
+                <label class="pad-bot8px" for="subtask-field">Subtasks</label>
+                <div id="insertfield-subtask" class="dflex-row input-field background-white">
+                    <input type="text" id="subtask-field" placeholder="Add new subtask" onclick="insertSubtask()" />
+                    <img src="./assets/icons/capa 1 dark.svg" onclick="insertSubtask()" />
+                </div>
+                <ul id="printSubtasks"></ul>
+            </div>
+        </div>
+    </div>
+    <!--Button zum hinzufügen des Tasks-->
+    <div id="create-clear-button" class="create-clear-button">
+        <button id="clear-button" type="button" class="clear-btn-3 c-pionter btn-hover clear-button" onclick="clearForm()">
+            Clear
+            <div class="icon-24">
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="iconoir:cancel">
+                        <path id="Vector"
+                            d="M12.0692 12.0001L17.3122 17.2431M6.82617 17.2431L12.0692 12.0001L6.82617
+                17.2431ZM17.3122 6.75708L12.0682 12.0001L17.3122 6.75708ZM12.0682 12.0001L6.82617 6.75708L12.0682 12.0001Z"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                </svg>
+            </div>
+        </button>
+        <button id="create-button" type="submit" class="create-button dflex-row flex-box-centered">
+            Create Task
+            <div class="icon-24">
+                <img class="icon-size" src="assets/icons/checkmark.svg" />
+            </div>
+        </button>
+    </div>
+</form>

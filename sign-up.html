@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up - Join</title>
+
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/icons/favicon-package/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/icons/favicon-package/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/icons/favicon-package/favicon-16x16.png"
+    />
+    <link
+      rel="manifest"
+      href="./assets/icons/favicon-package/site.webmanifest"
+    />
+    <link
+      rel="mask-icon"
+      href="./assets/icons/favicon-package/safari-pinned-tab.svg"
+      color="#29abe2"
+    />
+    <meta name="msapplication-TileColor" content="#29abe2" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style/fonts.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/notification.css" />
+    <link rel="stylesheet" href="./style/login-page.css" />
+
+    <!-- Scripts -->
+    <script src="./script/data.js"></script>
+    <script src="./script/script.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-container">
+        <picture>
+          <img
+            class="icon-size us-none"
+            draggable="false"
+            src="./assets/icons/logo-dark.svg"
+            alt="logo join"
+          />
+        </picture>
+      </div>
+    </header>
+
+    <div
+      class="d-none"
+      data-include-html="./assets/templates/notification.html"
+    ></div>
+
+    <main class="main-login-container">
+      <div class="side-spacing">
+        <div class="card-container">
+          <a class="return-container icon-32" href="./login.html">
+            <img
+              class="icon-size us-none"
+              draggable="false"
+              src="./assets/icons/arrow-round-back.svg"
+              alt="go back"
+            />
+          </a>
+          <div class="headline-container">
+            <h1 class="headline">Sign up</h1>
+            <div class="devider-container-1">
+              <div class="devider-line-blue"></div>
+            </div>
+          </div>
+
+          <form class="signup-card">
+            <div class="signup-input-container">
+              <div class="input-box" data-container="input">
+                <label for="name_input" class="icon-24 label-img">
+                  <picture>
+                    <img
+                      class="icon-size us-none"
+                      draggable="false"
+                      src="./assets/icons/person.svg"
+                      alt="name"
+                    />
+                  </picture>
+                </label>
+                <input
+                  class="input-content"
+                  id="name_input"
+                  type="text"
+                  autocomplete="name"
+                  data-input-type="text"
+                  data-input-required="false"
+                  placeholder="Name"
+                />
+                <div class="input-required us-none" name="error-message" hidden>
+                  This field is required
+                </div>
+              </div>
+
+              <div class="input-box" data-container="input">
+                <label for="email_input" class="icon-24 label-img">
+                  <picture>
+                    <img
+                      class="icon-size us-none"
+                      draggable="false"
+                      src="./assets/icons/mail.svg"
+                      alt="email"
+                    />
+                  </picture>
+                </label>
+                <input
+                  required
+                  class="input-content"
+                  id="email_input"
+                  type="email"
+                  autocomplete="email"
+                  data-input-type="email"
+                  data-input-required="true"
+                  placeholder="Email"
+                />
+                <div class="input-required us-none" name="error-message" hidden>
+                  This field is required
+                </div>
+              </div>
+
+              <div class="input-box" data-container="input">
+                <label for="password_input">
+                  <div class="icon-24 label-img">
+                    <img
+                      class="icon-size us-none"
+                      draggable="false"
+                      src="./assets/icons/lock.svg"
+                      alt="password"
+                    />
+                  </div>
+                  <div
+                    class="eye-btn"
+                    data-label-icon="eye"
+                    style="display: none"
+                  >
+                    <label for="pwd_visible" class="icon-24 pwd-icon-container">
+                      <input
+                        class="d-none"
+                        id="pwd_visible"
+                        type="checkbox"
+                        data-toggle-img="eye"
+                      />
+                      <div class="pwd-icon icon-24">
+                        <img
+                          class="icon-size us-none box-default"
+                          draggable="false"
+                          src="./assets/icons/visibility-off.svg"
+                          alt="password visibility on"
+                        />
+                        <img
+                          class="icon-size us-none box-active"
+                          draggable="false"
+                          src="./assets/icons/visibility-on.svg"
+                          alt="password visibility on"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                </label>
+                <input
+                  required
+                  class="input-content"
+                  id="password_input"
+                  type="password"
+                  autocomplete="new-password"
+                  data-input-type="password"
+                  data-input-required="true"
+                  placeholder="Password"
+                />
+                <div class="input-required us-none" name="error-message" hidden>
+                  Your Passwords don't match. Try again.
+                </div>
+              </div>
+
+              <div class="input-box" data-container="input">
+                <label for="confirm_password_input">
+                  <div class="icon-24 label-img">
+                    <img
+                      class="icon-size us-none"
+                      draggable="false"
+                      src="./assets/icons/lock.svg"
+                      alt="password"
+                    />
+                  </div>
+                  <div
+                    class="eye-btn"
+                    data-label-icon="eye"
+                    style="display: none"
+                  >
+                    <label
+                      for="confirm_pwd_visible"
+                      class="icon-24 pwd-icon-container"
+                    >
+                      <input
+                        class="d-none"
+                        id="confirm_pwd_visible"
+                        type="checkbox"
+                        data-toggle-img="eye"
+                      />
+                      <div class="pwd-icon icon-24">
+                        <img
+                          class="icon-size us-none box-default"
+                          draggable="false"
+                          src="./assets/icons/visibility-off.svg"
+                          alt="password visibility off"
+                        />
+                        <img
+                          class="icon-size us-none box-active"
+                          draggable="false"
+                          src="./assets/icons/visibility-on.svg"
+                          alt="password visibility on"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                </label>
+                <input
+                  required
+                  class="input-content"
+                  id="confirm_password_input"
+                  type="password"
+                  autocomplete="new-password"
+                  data-input-type="password"
+                  data-input-required="true"
+                  placeholder="Confirm Password"
+                />
+                <div class="input-required us-none" name="error-message" hidden>
+                  Your Passwords don't match. Try again.
+                </div>
+                <div class="login-error us-none" id="error_message" hidden>
+                  Wrong email/password combination. Try again.
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="signup-btn-container flex-box-centered">
+            <div class="checkbox-container" data-container="checkbox">
+              <label for="policy_checkbox" class="checkbox-icon c-pointer">
+                <input
+                  required
+                  class="d-none"
+                  id="policy_checkbox"
+                  type="checkbox"
+                  data-input-required="true"
+                  data-input-type="checkbox"
+                />
+                <div
+                  class="icon-24 checkbox-icon-container"
+                  name="checkbox-container"
+                >
+                  <img
+                    class="icon-size us-none box-default"
+                    draggable="false"
+                    src="./assets/icons/checkbox-outline-default.svg"
+                    alt="checkbox default"
+                  />
+                  <img
+                    class="icon-size us-none box-active"
+                    draggable="false"
+                    src="./assets/icons/checkbox-outline-active.svg"
+                    alt="checkbox active"
+                  />
+                </div>
+              </label>
+              <div class="checkbox-desc us-none">
+                I accept the
+                <a class="a-link" href="./privacy-policy.html"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+
+            <button
+              class="user-login-btn flex-box-centered c-pointer"
+              id="sign_up_btn"
+            >
+              <div class="login-btn-font us-none">Sign up</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="flex-box-centered">
+      <div class="footer-container">
+        <a class="footer-links" href="./privacy-policy.html">Privacy Policy</a>
+        <a class="footer-links" href="./legal-notice.html">Legal notice</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="./script/sign-up.js"></script>
+  </body>
+</html>

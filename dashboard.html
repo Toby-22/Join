@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summary - Join</title>
+
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/icons/favicon-package/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/icons/favicon-package/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/icons/favicon-package/favicon-16x16.png"
+    />
+    <link
+      rel="manifest"
+      href="./assets/icons/favicon-package/site.webmanifest"
+    />
+    <link
+      rel="mask-icon"
+      href="./assets/icons/favicon-package/safari-pinned-tab.svg"
+      color="#29abe2"
+    />
+    <meta name="msapplication-TileColor" content="#29abe2" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style/fonts.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/navigation.css" />
+    <link rel="stylesheet" href="./style/notification.css" />
+    <link rel="stylesheet" href="./style/dashboard.css" />
+
+    <!-- Scripts -->
+    <script src="./script/data.js"></script>
+    <script src="./script/script.js"></script>
+    <script src="./script/dashboard.js"></script>
+    <script src="./script/navigation.js"></script>
+  </head>
+
+  <body>
+    <header
+      data-include-html="./assets/templates/header-template.html"
+    ></header>
+    <aside data-include-html="./assets/templates/nav-template.html"></aside>
+
+    <main class="main-container">
+      <div class="side-spacing">
+        <header class="headline-container">
+          <h2 class="section-headline">Join 360</h2>
+          <div class="section-subheadline">
+            <div>Key Metrics at a Glance</div>
+            <div class="devider-container-1">
+              <div class="devider-line-blue"></div>
+            </div>
+          </div>
+        </header>
+
+        <section class="card-section-grid">
+          <div class="summary-container">
+            <a class="summary-card-1 card-hover" href="./board.html">
+              <div class="card-content-3" data-field="bottom-row">
+                <div class="icon-circle icon-circle-dark flex-box-centered">
+                  <img
+                    class="filter-invert"
+                    src="./assets/icons/pencil-mobile.svg"
+                    alt="to-do pencil"
+                  />
+                </div>
+                <div>
+                  <div class="card-num">0</div>
+                  <div class="card-desc">To-do</div>
+                </div>
+              </div>
+            </a>
+            <a class="summary-card-2 card-hover" href="./board.html">
+              <div class="card-content-3" data-field="bottom-row">
+                <div class="icon-circle icon-circle-dark flex-box-centered">
+                  <img
+                    class="filter-invert"
+                    src="./assets/icons/checkmark.svg"
+                    alt="checkmark"
+                  />
+                </div>
+                <div>
+                  <div class="card-num">0</div>
+                  <div class="card-desc">Done</div>
+                </div>
+              </div>
+            </a>
+
+            <a class="summary-card-3 card-hover" href="./board.html">
+              <div class="card-content-2" data-field="middle-row">
+                <div class="card-content-2-left">
+                  <div class="icon-circle urgent flex-box-centered">
+                    <img
+                      src="./assets/icons/prio-urgent.svg"
+                      alt="urgent summary"
+                    />
+                  </div>
+                  <div>
+                    <div class="card-num">0</div>
+                    <div class="card-desc">To-do</div>
+                  </div>
+                </div>
+
+                <div class="devider-container-2">
+                  <div class="devider-line-grey"></div>
+                </div>
+
+                <div class="card-content-2-right">
+                  <div class="deadline-date">month day, year</div>
+                  <div class="deadline-subtitle">Upcoming Deadline</div>
+                </div>
+              </div>
+            </a>
+
+            <a class="summary-card-4 card-hover" href="./board.html">
+              <div class="card-content-1" data-field="top-row">
+                <div class="card-num">0</div>
+                <div class="card-desc">Tasks in Board</div>
+              </div>
+            </a>
+            <a class="summary-card-5 card-hover" href="./board.html">
+              <div class="card-content-1" data-field="top-row">
+                <div class="card-num">0</div>
+                <div class="card-desc">Tasks in Progress</div>
+              </div>
+            </a>
+            <a class="summary-card-6 card-hover" href="./board.html">
+              <div class="card-content-1" data-field="top-row">
+                <div class="card-num">0</div>
+                <div class="card-desc">Awaiting Feedback</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="greeting-container">
+            <div
+              class="greeting-font greeting-desktop"
+              data-greeting="guest"
+            ></div>
+            <div class="overlay flex-box-centered">
+              <div
+                class="greeting-font greeting-mobil"
+                data-greeting="user"
+              ></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

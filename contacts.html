@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts - Join</title>
+
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/icons/favicon-package/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/icons/favicon-package/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/icons/favicon-package/favicon-16x16.png"
+    />
+    <link
+      rel="manifest"
+      href="./assets/icons/favicon-package/site.webmanifest"
+    />
+    <link
+      rel="mask-icon"
+      href="./assets/icons/favicon-package/safari-pinned-tab.svg"
+      color="#29abe2"
+    />
+    <meta name="msapplication-TileColor" content="#29abe2" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style/fonts.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/navigation.css" />
+    <link rel="stylesheet" href="./style/notification.css" />
+    <link rel="stylesheet" href="./style/contacts.css" />
+
+    <!-- Scripts -->
+    <script src="./script/templates.js"></script>
+    <script src="./script/data.js"></script>
+    <script src="./script/script.js"></script>
+    <script src="./script/contacts.js"></script>
+    <script src="./script/navigation.js"></script>
+  </head>
+
+  <body onload="init()">
+    <header
+      data-include-html="./assets/templates/header-template.html"
+    ></header>
+    <aside data-include-html="./assets/templates/nav-template.html"></aside>
+    <div
+      class="d-none"
+      data-include-html="./assets/templates/notification.html"
+    ></div>
+
+    <main class="main-container">
+      <!-- edit window for contact -->
+      <div class="contact_edit_main_container" id="contact-edit">
+        <div class="contact_edit_container">
+          <img
+            class="contact_edit_close d_close"
+            src="./assets/icons/close.svg"
+            onclick="toggleClass('contact-edit', 'show')"
+          />
+          <img
+            class="contact_edit_close m_close"
+            src="./assets/icons/close-withe.svg"
+            onclick="toggleClass('contact-edit', 'show')"
+          />
+          <div class="contact_edit_title">
+            <div class="contacts_logo">
+              <img src="./assets/icons/logo-light.svg" />
+            </div>
+            <div class="contacts_edit_h1"><b>Edit contact</b></div>
+            <div class="parting_line_blue ml-24"></div>
+          </div>
+          <div class="circlebig flex-box-centered" id="circle_edit"></div>
+          <div class="contact_edit_input">
+            <form
+              class="contact_input_container"
+              onsubmit="confirmContact('confirm-edit'); return false;"
+            >
+              <div>
+                <div class="contact_inputfield">
+                  <input
+                    type="name"
+                    id="nameEditInput"
+                    class="contact_input"
+                    placeholder="Name"
+                  />
+                  <img
+                    src="./assets/icons/person.svg"
+                    class="contact_input_img"
+                  />
+                </div>
+                <div class="contact_inputfield">
+                  <input
+                    type="email"
+                    id="emailEditInput"
+                    class="contact_input"
+                    placeholder="Email"
+                  />
+                  <img
+                    src="./assets/icons/mail.svg"
+                    class="contact_input_img"
+                  />
+                </div>
+                <div class="contact_inputfield">
+                  <input
+                    type="number"
+                    id="phoneEditInput"
+                    class="contact_input"
+                    placeholder="Phone"
+                  />
+                  <img
+                    src="./assets/icons/call.svg"
+                    class="contact_input_img"
+                  />
+                </div>
+              </div>
+              <div class="btn_container" id="edit-btn"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Add window for contact -->
+      <div class="contact_edit_main_container" id="contact-add">
+        <div class="contact_edit_container">
+          <img
+            class="contact_edit_close d_close"
+            src="./assets/icons/close.svg"
+            onclick="toggleClass('contact-add', 'show'), cancelAdd('Add')"
+          />
+          <img
+            class="contact_edit_close m_close"
+            src="./assets/icons/close-withe.svg"
+            onclick="toggleClass('contact-add', 'show'), cancelAdd('Add')"
+          />
+          <div class="contact_edit_title">
+            <div class="contacts_logo">
+              <img src="./assets/icons/logo-light.svg" />
+            </div>
+            <div class="contacts_edit_h1"><b>Add contact</b></div>
+            <div class="contacts_add_description">
+              Task er better with a team!
+            </div>
+            <div class="parting_line_blue ml-24"></div>
+          </div>
+          <div class="contact_add_icon">
+            <img src="./assets/icons/person.svg" class="contact_add_img" />
+          </div>
+          <div class="contact_edit_input">
+            <form
+              class="contact_input_container"
+              onsubmit="saveContact(); toggleClass('contact-add', 'show'); confirmContact('confirm-save'); return false;"
+            >
+              <div>
+                <div class="contact_inputfield">
+                  <input
+                    type="name"
+                    class="contact_input"
+                    id="nameAddInput"
+                    placeholder="Name"
+                    required
+                  />
+                  <img
+                    src="./assets/icons/person.svg"
+                    class="contact_input_img"
+                  />
+                </div>
+                <div class="contact_inputfield">
+                  <input
+                    type="email"
+                    class="contact_input"
+                    id="emailAddInput"
+                    placeholder="Email"
+                    required
+                  />
+                  <img
+                    src="./assets/icons/mail.svg"
+                    class="contact_input_img"
+                  />
+                </div>
+                <div class="contact_inputfield">
+                  <input
+                    type="number"
+                    class="contact_input"
+                    id="phoneAddInput"
+                    placeholder="Phone"
+                  />
+                  <img
+                    src="./assets/icons/call.svg"
+                    class="contact_input_img"
+                  />
+                </div>
+              </div>
+              <div class="btn_container">
+                <button class="btn_save flex-box-centered">
+                  <nobr><b>Create Contact</b></nobr
+                  ><img src="./assets/icons/checkmark.svg" />
+                </button>
+                <button
+                  class="btn_delete"
+                  onclick="toggleClass('contact-add', 'show'), cancelAdd('Add')"
+                >
+                  Cancel<img
+                    class="btn_img"
+                    src="./assets/icons/close.svg"
+                  /><img
+                    class="btn_none"
+                    src="./assets/icons/cancel-blue.svg"
+                  />
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- contact list -->
+      <div class="contact_desktop">
+        <div class="contact_list_container" id="list-main">
+          <div>
+            <div class="add_contact_container">
+              <button
+                class="add_contact"
+                onclick="toggleClass('contact-add', 'show')"
+              >
+                Add new contact<img
+                  src="./assets/icons/person-add.svg"
+                  class="add_contact_img"
+                />
+              </button>
+            </div>
+            <div class="contact_list">
+              <div id="contact-list"></div>
+            </div>
+          </div>
+          <div
+            class="person_add_icon"
+            onclick="toggleClass('contact-add', 'show')"
+          >
+            <img src="./assets/icons/person-add.svg" />
+          </div>
+        </div>
+
+        <!-- contact information -->
+        <div class="contact_info_container" id="contact-info">
+          <div class="contact_info">
+            <div class="contacts_info_desktop">
+              <div
+                class="contact_back"
+                onclick="toggleClass('contact-info', 'show_info'), toggleClass('list-main', 'overflow_hidden'), toggleClass('contact-more', 'd-none')"
+              >
+                <img src="./assets/icons/arrow-round-back.svg" />
+              </div>
+              <h1 class="contacts_h1"><b>Contacts</b></h1>
+              <div class="parting_line_blue_desktop"></div>
+              <div class="contacts_description font_normal">
+                Better with a team
+              </div>
+              <div class="parting_line_blue line_mobil"></div>
+            </div>
+            <div id="show-contact d-none" class="show_contact">
+              <div>
+                <div>
+                  <div class="contact_info_circle">
+                    <div id="namecircle"></div>
+                    <div>
+                      <div>
+                        <b class="contact_name" id="nameinfo"></b>
+                      </div>
+                      <div class="contact_info_edit_delete" id="editdesk"></div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <div
+                      class="contact_information font_normal"
+                      id="textinfo"
+                    ></div>
+                  </div>
+                  <div>
+                    <div id="mail"></div>
+                    <div id="phone"></div>
+                  </div>
+                </div>
+                <div class="contact_more d-none" id="contact-more">
+                  <div class="sec-center">
+                    <input
+                      class="dropdown"
+                      type="checkbox"
+                      id="dropdown"
+                      name="dropdown"
+                    />
+                    <label class="for-dropdown" for="dropdown"
+                      ><img class="img" src="./assets/icons/more.svg" /><i
+                        class="uil uil-arrow-down"
+                      ></i
+                    ></label>
+                    <div class="section-dropdown" id="drop"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- message that the contact has been added successfully -->
+      <div>
+        <div
+          class="confirm_container font_normal flex-box-centered"
+          id="confirm-save"
+        >
+          Contact succesfully created
+        </div>
+        <div
+          class="confirm_container font_normal flex-box-centered"
+          id="confirm-edit"
+        >
+          Contact edited successfully
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

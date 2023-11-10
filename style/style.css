@@ -1,0 +1,384 @@
+/* ================================================== */
+:root {
+  /* Color Palette */
+  --color-1: #000000;
+  --color-2: #091931;
+  --color-3: #2a3647;
+  --color-4: #42526e;
+  --color-5: #a8a8a8;
+  --color-6: #cdcdcd;
+  --color-7: #d1d1d1;
+  --color-8: #edf2fa;
+  --color-9: #f6f7f8;
+  --color-10: #f4f4f4;
+  --color-11: #f0f0f0;
+  --color-12: #eeeeee;
+  --color-13: #ffffff;
+  --color-14: #ff3d00;
+  --color-15: #ff4646;
+  --color-16: #ff745e;
+  --color-17: #ff8190;
+  --color-18: #ff7a00;
+  --color-19: #ffa800;
+  --color-20: #ffbb2b;
+  --color-21: #ffa35e;
+  --color-22: #ffc701;
+  --color-23: #ffc700;
+  --color-24: #ffe62b;
+  --color-25: #c3ff2b;
+  --color-26: #7ae229;
+  --color-27: #1fd7c1;
+  --color-28: #00bee8;
+  --color-29: #29abe2;
+  --color-30: #007cee;
+  --color-31: #4589ff;
+  --color-32: #0038ff;
+  --color-33: #6e52ff;
+  --color-34: #2a3d59;
+  --color-35: #462f8a;
+  --color-36: #9327ff;
+  --color-37: #9747ff;
+  --color-38: #fc71ff;
+  --color-39: #ff5eb3;
+  --color-40: #071a36;
+  --color-41: #e7e7e7;
+
+  /* Background Colors */
+  --background-color-primary: var(--color-30);
+  --background-color-secondary: var(--color-11);
+  --background-color-tertiary: var(--color-8);
+  --background-color-quaternary: var(--color-9);
+  --background-color-quinary: var(--color-3);
+  --background-color-senary: var(--color-13);
+
+  /* Text Colors*/
+  --text-color-primary: var(--color-1);
+  --text-color-secondary: var(--color-30);
+  --text-color-tertiary: var(--color-6);
+  --text-color-quaternary: var(--color-5);
+  --text-color-quinary: var(--color-29);
+  --text-color-senary: var(--color-3);
+  --text-color-septenary: var(--color-17);
+  --text-color-octonary: var(--color-9);
+  --text-color-nonary: var(--color-13);
+
+  /* Font-settings */
+  --font-family-primary: Inter, sans-serif;
+  --font-family-seconary: "Open Sans", sans-serif;
+
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-s: 0.875rem; /* 14px */
+  --font-size-n: 1rem; /* 16px */
+  --font-size-l: 1.25rem; /* 20px */
+  --font-size-xl: 1.3125rem; /* 21px */
+  --font-size-xxl: 2.25rem; /* 36px */
+  --font-size-xxxl: 2.938rem; /* 47px */
+  --font-size-xxxxl: 4rem; /* 64px */
+
+  --line-height-1: 0.9rem; /* 14,4px */
+  --line-height-2: 1.05rem; /* 16,8px */
+  --line-height-3: 1.2rem; /* 19,2px */
+  --line-height-4: 1.5rem; /* 24px */
+  --line-height-5: 1.575rem; /* 25,2px */
+  --line-height-6: 2.7rem; /* 43,2px */
+  --line-height-7: 3.535rem; /* 56,4px */
+  --line-height-8: 4.8rem; /* 76,8px */
+
+  --font-weight-n: 400;
+  --font-weight-b: 600;
+  --font-weight-xb: 700;
+
+  /* Profile Colors */
+  --profile-color-1: var(--color-31);
+  --profile-color-2: var(--color-39);
+  --profile-color-3: var(--color-31);
+  --profile-color-4: var(--color-29);
+  --profile-color-5: var(--color-16);
+  --profile-color-6: var(--color-21);
+  --profile-color-7: var(--color-33);
+  --profile-color-8: var(--color-22);
+  --profile-color-9: var(--color-24);
+  --profile-color-10: var(--color-25);
+  --profile-color-11: var(--color-27);
+  --profile-color-12: var(--color-28);
+  --profile-color-13: var(--color-32);
+  --profile-color-14: var(--color-33);
+  --profile-color-15: var(--color-36);
+  --profile-color-16: var(--color-6);
+
+  --profile-color-hover-1: var(--color-40);
+  --profile-color-hover-2: linear-gradient(
+      0deg,
+      rgba(12, 46, 98, 0.12) 0%,
+      rgba(12, 46, 98, 0.12) 100%
+    ),
+    var(--color-13);
+
+  /* Priority Colors  */
+  --priority-color-urgent: var(--color-14);
+  --priority-color-medium: var(--color-19);
+  --priority-color-low: var(--color-26);
+
+  /* Menu Colors */
+  --button-color-default: var(--color-3);
+  --button-color-hover-primary: var(--color-29);
+  --button-color-hover-secondary: var(--color-34);
+  --button-color-hover-tertiary: var(--color-12);
+  --button-color-hover-quaternary: var(--color-8);
+  --button-color-hover-quinary: var(--color-7);
+  --button-color-hover-senary: rgba(9, 24, 47, 0.6);
+  --button-color-click: var(--color-2);
+
+  --error-color: var(--color-17);
+  --label-color-primary: var(--color-32);
+  --label-color-secondary: var(--color-27);
+  --progressbar-color-primary: var(--color-31);
+  --progressbar-color-secondary: var(--color-10);
+
+  /* Box Shadows */
+  --box-shadow-1: 0px 4px 4px 0px rgb(0, 0, 0, 0.1);
+  --box-shadow-2: 0px 0px 4px 0px rgb(0, 0, 0, 0.16);
+  --box-shadow-3: 0px 0px 4px 0px rgb(0, 0, 0, 0.1);
+  --box-shadow-4: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --box-shadow-5: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+
+  /* Border Radius */
+  --border-radius-rounded: 9999px;
+  --border-radius-1: 8px;
+  --border-radius-2: 10px;
+  --border-radius-3: 16px;
+  --border-radius-4: 20px;
+  --border-radius-5: 24px;
+  --border-radius-6: 30px;
+
+  /* Breakpoints */
+  /* --breakpoint-xs: 0;
+  --breakpoint-s: 576px;
+  --breakpoint-m: 768px;
+  --breakpoint-l: 992px;
+  --breakpoint-xl: 1200px; */
+
+  /* General Sizes */
+  --mobile-nav-height: 80px;
+  --desktop-nav-height: 96px;
+  --desktop-nav-width: 348px;
+}
+
+/* ========================== */
+/* ====== RESET STYLING ===== */
+/* ========================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  /* outline: 1px solid lightblue; */
+  /* background-color: rgba(173, 216, 230, 0.2); */
+  /* scrollbar-width: thin; */
+  /* scrollbar-color: var(--background-color-quinary) transparent; */
+}
+
+body {
+  height: 100%;
+}
+
+body {
+  line-height: var(--line-height-3);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--text-color-primary);
+}
+
+/* ========================== */
+/* ===== General Styling ===== */
+/* ========================== */
+body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-n);
+  font-weight: var(--font-weight-n);
+  color: var(--text-color-primary);
+  background-color: var(--background-color-quaternary);
+  /* overflow: hidden; */
+}
+
+.main-container {
+  margin-top: 80px;
+  height: calc(100vh - var(--mobile-nav-height) * 2);
+  overflow-y: scroll;
+  scrollbar-gutter: stable both-edges;
+}
+
+.side-spacing {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.mobile-visible {
+  display: block;
+}
+
+.desktop-visible {
+  display: none;
+}
+
+.us-none {
+  user-select: none;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.v-hidden {
+  visibility: hidden !important;
+}
+
+.c-pointer {
+  cursor: pointer;
+}
+
+.flex-box-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-size {
+  height: 100%;
+  width: 100%;
+}
+
+.icon-24 {
+  height: 24px;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.icon-32 {
+  height: 32px;
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.input-required {
+  position: absolute;
+  bottom: calc(-1 * (14px + 8px));
+  left: 0;
+  width: fit-content;
+  margin-left: 8px;
+
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-n);
+  line-height: var(--line-height-1);
+  color: var(--error-color);
+}
+
+.a-link {
+  color: var(--text-color-quinary) !important;
+}
+
+.a-link:focus,
+.a-link:hover {
+  outline: none;
+  text-decoration: underline;
+}
+
+/* Devider Lines */
+.devider-line-blue {
+  background-color: var(--color-29);
+  height: 100%;
+  width: 100%;
+  border-radius: var(--border-radius-rounded);
+}
+
+.devider-line-grey {
+  background-color: var(--color-7);
+  height: 100%;
+  width: 100%;
+  border-radius: var(--border-radius-rounded);
+}
+
+.circle {
+  display: flex;
+  margin-right: 15px;
+  color: var(--color-13);
+  min-width: 42px;
+  height: 42px;
+  background-color: var(--color-5);
+  line-height: 42px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--color-13);
+}
+
+*::-webkit-scrollbar {
+  box-sizing: border-box;
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--background-color-quinary);
+  border-radius: 12px;
+  border: 2px solid transparent;
+}
+
+/* === MEDIA QUERIES === */
+@media (min-width: 768px) {
+  .desktop-visible {
+    display: block;
+  }
+
+  .mobile-visible {
+    display: none;
+  }
+
+  .side-spacing {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}

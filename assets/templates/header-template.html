@@ -1,0 +1,50 @@
+<div class="mobile-header">
+  <div class="mobile-header-content us-none">
+    <a class="logo" href="./dashboard.html">
+      <img src="./assets/icons/logo-dark.svg" alt="join logo" />
+    </a>
+
+    <div class="header-title">Kanban Project Management Tool</div>
+
+    <div>
+      <input id="mobile_header_dropdown" class="d-none" type="checkbox" />
+      <div class="flex-box-centered">
+        <a
+          class="help-container desktop-visible"
+          href="./help.html"
+          title="Help"
+        >
+          <img class="icon-size" src="./assets/icons/help.svg" alt="help" />
+        </a>
+
+        <!-- User Badge -->
+        <label
+          class="profile-badge flex-box-centered"
+          for="mobile_header_dropdown"
+        >
+          <div class="profile-badge-content flex-box-centered">
+            <span class="badge-font" id="badge_initial"></span>
+          </div>
+        </label>
+      </div>
+
+      <label class="modal-background" for="mobile_header_dropdown"></label>
+      <nav class="mobile-header-dropdown">
+        <a class="dropdown-link mobile-visible" href="./legal-notice.html"
+          >Legal Notice</a
+        >
+        <a class="dropdown-link mobile-visible" href="./privacy-policy.html"
+          >Privacy Policy</a
+        >
+        <a class="dropdown-link mobile-visible" href="./help.html">Help</a>
+        <button
+          class="dropdown-link"
+          id="logout_btn"
+          onclick="addLogoutButton();"
+        >
+          Log out
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>

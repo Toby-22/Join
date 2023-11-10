@@ -1,0 +1,334 @@
+/* @import url(./style.css); */
+
+/* ================================================== */
+/* ===================== */
+/* === Mobile-Header === */
+/* ===================== */
+.mobile-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: var(--mobile-nav-height);
+  padding: 20px 16px;
+
+  background-color: var(--background-color-senary);
+  box-shadow: var(--box-shadow-1);
+  z-index: 999;
+}
+
+.nav-btn-container,
+.mobile-nav-content,
+.mobile-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 100%;
+  width: 32px;
+}
+
+.help-container {
+  height: 32px;
+  width: 32px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.help-container:hover {
+  scale: 1.15;
+}
+
+.profile-badge {
+  --avatar-size: 40px;
+  height: var(--avatar-size);
+  width: var(--avatar-size);
+  padding: 2px;
+  background-color: var(--background-color-quinary);
+  border-radius: var(--border-radius-rounded);
+  cursor: pointer;
+}
+
+.profile-badge-content {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color-senary);
+  border-radius: var(--border-radius-rounded);
+  border: 1px transparent;
+}
+
+.badge-font {
+  color: var(--text-color-quinary);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-size-n);
+  font-size: var(--font-size-xs);
+}
+
+#mobile_header_dropdown:checked ~ .mobile-header-dropdown {
+  visibility: visible;
+  max-height: 100%;
+  max-width: 100%;
+  padding: 10px;
+}
+
+#mobile_header_dropdown:checked ~ .modal-background {
+  visibility: visible;
+}
+
+/* #mobile_header_dropdown:checked ~ .profile-badge-content, */
+.profile-badge-content:hover {
+  background: var(--profile-color-hover-2);
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.mobile-header-dropdown {
+  position: fixed;
+  right: 16px;
+  top: var(--mobile-nav-height);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  max-height: 0;
+  max-width: 0;
+  transition: all 0.225s ease-in-out;
+
+  border-radius: var(--border-radius-3) 0 var(--border-radius-3)
+    var(--border-radius-3);
+  background-color: var(--background-color-quinary);
+  box-shadow: var(--box-shadow-3);
+  overflow: hidden;
+  z-index: 999;
+}
+
+.dropdown-link {
+  padding: 8px 16px;
+  font-size: var(--font-size-n);
+  font-weight: var(--font-weight-n);
+  line-height: var(--line-height-3);
+  text-align: start;
+  color: var(--text-color-tertiary);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--border-radius-2);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dropdown-link:hover {
+  background-color: var(--color-2);
+  color: var(--text-color-nonary);
+}
+
+/* ===================== */
+/* === Mobile-Navbar === */
+/* ===================== */
+.mobile-nav {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  height: var(--mobile-nav-height);
+  padding: 0 16px;
+  background-color: var(--background-color-quinary);
+  z-index: 999;
+}
+
+.mobile-nav-content {
+  font-family: var(--font-family-seconary);
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-n);
+  line-height: var(--line-height-2);
+}
+
+.nav-btn-container {
+  height: 100%;
+  width: 100%;
+}
+
+.nav-btn {
+  height: 76px;
+  width: 80px;
+  border-radius: var(--border-radius-3);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 100%;
+  width: 100%;
+  padding: 15px 0px;
+  color: var(--text-color-tertiary);
+}
+
+.nav-content-active,
+.nav-content:hover,
+.nav-content:active,
+.nav-btn > input[name="nav-checkbox"]:checked
+.nav-content:focus {
+  color: var(--text-color-nonary);
+  background-color: var(--button-color-hover-senary);
+  outline: none;
+}
+
+.nav-content-active {
+  background-color: var(--button-color-click);
+}
+
+.btn-icon {
+  height: 24px;
+  width: 24px;
+}
+
+/* ====================== */
+/* === Desktop-Header === */
+/* ====================== */
+.header-title {
+  display: none;
+  color: var(--text-color-primary);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-size-n);
+  font-size: var(--font-size-l);
+  line-height: var(--line-height-4);
+  white-space: nowrap;
+}
+
+/* ===================== */
+/* === Desktop-Navbar === */
+/* ===================== */
+.desktop-logo-container {
+  display: none;
+  width: 100px;
+  height: 121px;
+}
+
+.footer-container {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 52px;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.footer-links {
+  height: 100%;
+  padding: 8px;
+  font-size: var(--font-size-n);
+  font-weight: var(--font-weight-n);
+  line-height: var(--line-height-3);
+  color: var(--text-color-quaternary);
+}
+
+.footer-links:hover,
+.footer-links:focus {
+  font-weight: var(--font-weight-xb);
+  color: var(--text-color-quinary);
+}
+
+
+/* ===================== */
+/* === MEDIA QUERIES === */
+/* ===================== */
+@media (min-width: 768px) {
+  .mobile-header {
+    padding: 20px 40px 20px 296px;
+    height: var(--desktop-nav-height);
+  }
+
+  .mobile-header-dropdown {
+    top: var(--desktop-nav-height);
+    right: 40px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .header-title {
+    display: block;
+  }
+
+  .mobile-nav {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: unset;
+    width: 232px;
+    height: auto;
+    padding: 0;
+    overflow-y: scroll;
+  }
+  
+  .mobile-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-container {
+    height: calc(100vh - var(--desktop-nav-height)) !important;
+    width: calc(100% - 232px) !important;
+    margin-top: var(--desktop-nav-height) !important;
+    margin-left: 232px;
+    /* overflow-y: unset; */
+  }
+
+  .mobile-nav-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 64px 0;
+  }
+
+  .desktop-logo-container {
+    display: block;
+  }
+
+  .nav-btn-container {
+    height: fit-content;
+    padding: 0 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-btn {
+    min-height: 46px;
+    height: fit-content;
+    width: 100%;
+    border-radius: var(--border-radius-2);
+  }
+
+  .nav-content {
+    flex-direction: row;
+    padding: 8px 48px;
+    justify-content: start;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-icon {
+    height: 30px;
+    width: 30px;
+  }
+
+  .footer-container {
+    display: flex;
+  }
+}
