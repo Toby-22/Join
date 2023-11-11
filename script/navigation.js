@@ -4,7 +4,7 @@
 function addLogoutButton() {
   // const logOutBtn = document.querySelector("#logout_btn");
   deleteCookie("join_user-id");
-  window.location.href = "../login.html";
+  window.location.href = "login.html";
 }
 
 /**

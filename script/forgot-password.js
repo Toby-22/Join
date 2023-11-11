@@ -59,7 +59,7 @@ function handleForgotPassword(email) {
   // sendMail(email);
 
   emptyInputFields();
-  window.location.href = "../login.html";
+  window.location.href = "login.html";
 }
 
 /**

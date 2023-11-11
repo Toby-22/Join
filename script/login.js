@@ -94,7 +94,7 @@ async function submitUserLogin() {
  * @param {Object} user - array of the user data returned from the server.
  */
 async function handleSuccessfulLogin(user) {
-  const url = `../dashboard.html?id=${user.id}`;
+  const url = `dashboard.html?id=${user.id}`;
   localStorage.setItem("alreadyLoggin", false); // added from BR
 
   const userCookie = await getCookie("join_user-id");
@@ -104,7 +104,7 @@ async function handleSuccessfulLogin(user) {
   rememberMeLogin("join_rmb-lgn", user.id);
   emptyInputFields();
   window.location.href = url;
-  // window.location.href = '../dashboard.html';
+  //window.location.href = '../dashboard.html';
 }
 
 /**

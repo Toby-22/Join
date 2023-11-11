@@ -69,7 +69,7 @@ async function handleSuccessfulSignUp(contact) {
   storeData("contacts", contact);
 
   emptyInputFields();
-  window.location.href = "../login.html";
+  window.location.href = "login.html";
 }
 
 function getInputValues(contact) {

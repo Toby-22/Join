@@ -1,4 +1,5 @@
-const STORAGE_TOKEN = "CULVPLM98TR9G6U4CX3YDFGGHICSW7HK2738XHLK";
+//const STORAGE_TOKEN = "CULVPLM98TR9G6U4CX3YDFGGHICSW7HK2738XHLK";
+const STORAGE_TOKEN = "Y0PVUSAW4A49WA5DCKKAN3O0AL0M7KPRU2RHFQSG";
 const STORAGE_URL = "https://remote-storage.developerakademie.org/item";
 
 // This constant includes all possible categories for Tasks
