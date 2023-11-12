@@ -76,6 +76,7 @@ async function addTask() {
   try {
     closeModalBox();
   } catch (error) {}
+  window.location.href = `./board.html`;
 }
 
 /**
@@ -490,6 +491,9 @@ function getCurrentTaskData() {
   return actualTask;
 }
 
+/**
+ * set minimum input Date of today
+ */
 function setInputToday() {
   let today = new Date();
   let dd = today.getDate();

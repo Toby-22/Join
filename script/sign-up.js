@@ -7,6 +7,7 @@ import {
   getUserByEmail,
   displayErrorMessage,
   validateRequiredElements,
+  validatePasswordComplince,
 } from "./input-validation.js";
 
 // =================================================================
@@ -32,8 +33,12 @@ function initSignupEvent() {
   const signUpBtn = document.querySelector("#sign_up_btn");
 
   signUpBtn.addEventListener("click", (e) => {
+    if (validatePasswordComplince()){
     e.preventDefault();
     submitSignUp();
+    }else{
+      document.getElementById('notEqual').classList.remove('d-none');
+    };
   });
 }
 

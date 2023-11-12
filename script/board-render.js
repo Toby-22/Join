@@ -68,6 +68,7 @@ async function renderAddTaskModalBox(sectionIndex) {
   let element = document.getElementById("create-clear-button");
   element.style.position = "relative";
   element.style.bottom = "0";
+  setInputToday();
 }
 
 /**

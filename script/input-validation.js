@@ -1,3 +1,5 @@
+let password1 = ""; // Variable zum Speichern des ersten eingegebenen Passworts
+
 /**
  * This function is used to check if the required input elements are valid.
  * @returns true if valid, false otherwise.
@@ -110,6 +112,20 @@ export async function validatePassword() {
     });
   });
 }
+
+/**
+ * this function check if both password entrys are equal
+ * @returns boolean
+ */
+export function validatePasswordComplince(){
+  const passwordFields = getPasswordFields();
+  let passwords = [];
+  passwordFields.forEach(element => {
+    passwords.push(element.value);
+  });
+  return(passwords[0] == passwords[1])
+}
+
 
 /**
  * This function is used to add a eventlistener to change the password visibility.

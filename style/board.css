@@ -263,10 +263,10 @@
 
 .task-detailed-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   height: calc(100% - 32px);
   padding-top: 16px;
-  /* overflow: auto; */
+  padding-left: 20px;
 }
 
 .task-detailed {
