@@ -1,6 +1,9 @@
 // =================================================================================================
 window.addEventListener("DOMContentLoaded", initDashboard);
 
+/**
+ * initialized the dashbaord
+ */
 async function initDashboard() {
   await includeHTML();
   setActiveTab();
@@ -9,6 +12,9 @@ async function initDashboard() {
   initDashboardElements();
 }
 
+/**
+ * initialized the dashbaord elements
+ */
 async function initDashboardElements() {
   await loadTasksfromBackend();
 
@@ -26,11 +32,21 @@ async function initDashboardElements() {
   changeFieldsOnBottom(todo, done);
 }
 
+/**
+ * loads tasks from backend
+ */
 async function loadTasksfromBackend() {
   let datas = await loadData("tasks");
   tasks = JSON.parse(datas);
 }
 
+/**
+ * counts task in a dashbaord section
+ * @param {string} data 
+ * @param {number} key 
+ * @param {string} sectionName 
+ * @returns 
+ */
 function countTasksInSection(data, key, sectionName) {
   let count = 0;
   validateString(key);
@@ -40,12 +56,22 @@ function countTasksInSection(data, key, sectionName) {
   return count;
 }
 
+/**
+ * counts tasks in the board
+ * @param {string} data 
+ * @returns 
+ */
 function countTasksInBoard(data) {
   let count = 0;
   for (let i = 0; i < data.length; i++) count++;
   return count;
 }
 
+/**
+ * updates the card number
+ * @param {number} rowElements 
+ * @param {number} numbers 
+ */
 function updateCardNumbers(rowElements, numbers) {
   rowElements.forEach((rowElement, i) => {
     const numElement = rowElement.querySelector(".card-num");
@@ -53,25 +79,42 @@ function updateCardNumbers(rowElements, numbers) {
   });
 }
 
+/**
+ * change the fields to top
+ * @param {number} todo 
+ * @param {number} inProgress 
+ * @param {number} awaitFeedback 
+ */
 function changeFieldsOnTop(todo, inProgress, awaitFeedback) {
   const topRow = document.querySelectorAll('[data-field="top-row"]');
   const nums = [todo, inProgress, awaitFeedback];
   updateCardNumbers(topRow, nums);
 }
 
+/**
+ * changes the fiels to middle
+ * @param {number} todo 
+ */
 function changeFieldsOnMiddle(todo) {
   const middleRow = document.querySelectorAll('[data-field="middle-row"]');
   const nums = [todo];
   updateCardNumbers(middleRow, nums);
 }
 
+/**
+ * changes the filds to bottom
+ * @param {number} todo 
+ * @param {number} done 
+ */
 function changeFieldsOnBottom(todo, done) {
   const bottomRow = document.querySelectorAll('[data-field="bottom-row"]');
   const nums = [todo, done];
   updateCardNumbers(bottomRow, nums);
 }
 
-// sortiert die Tasks nach prio und dann nach datum         // added from BR
+/**
+ * sorts task at prio an date
+ */
 function sort() {
   tasks.sort((a, b) => {
     if (a.priority < b.priority) {
@@ -84,7 +127,10 @@ function sort() {
   });
 }
 
-// wandelt unixTimeStamp um und rendert datum nach Monat, Tag und Jahr         // added from BR
+/**
+ * changes the unixtimestamp and rendert the date to month, day and year
+ * @returns 
+ */
 function getDate() {
   const unixTimeStamp = tasks[0].dueDate;
   const date = new Date(unixTimeStamp);
@@ -95,14 +141,17 @@ function getDate() {
   return formattedDate;
 }
 
-// render date                                                       // added from BR
+/**
+ * render date
+ */
 function renderDate() {
   document.querySelector(".deadline-date").textContent = getDate();
 }
 
-// render welcome screen
+/**
+ * renders the welcome screen
+ */
 async function initWelcome() {
-  // added from BR
   const isLogin = localStorage.getItem("alreadyLoggin") === "true";
   const { elements, userName } = await storageManagement();
   if (userName == null) {
@@ -117,7 +166,10 @@ async function initWelcome() {
   }
 }
 
-// loads name and passes it on
+/**
+ * loads name and passes it on
+ * @returns json
+ */
 async function storageManagement() {
   localStorage.setItem("alreadyLoggin", true);
   const userID = getCookie("join_user-id");
@@ -127,13 +179,20 @@ async function storageManagement() {
   return { elements, userName };
 }
 
-// search name by id                    // is not needed yet
+/**
+ * search name by id   
+ * @param {number} id 
+ * @param {number} contacts 
+ * @returns string
+ */
 function findUserById(id, contacts) {
   const user = contacts.find((contact) => contact.id === id);
   return user ? user.name : null;
 }
 
-// welcome animation using CSS
+/**
+ * welcome animation using CSS
+ */
 function greetingsAnimation() {
   const overlayClass = document.querySelector(".overlay").classList;
   setTimeout(function () {
@@ -144,13 +203,19 @@ function greetingsAnimation() {
   }, 2000);
 }
 
-// rendert welcome
+/**
+ * renders welcom
+ */
 function renderGreeting(elements, loginID, space) {
   elements.forEach((element) => {
     element.innerHTML = `<span>${greetingCurrentTime()}${space}<br><b class="greeting-user">${loginID}</b></span>`;
   });
 }
 
+/**
+ * greets on current time
+ * @returns string
+ */
 function greetingCurrentTime() {
   let hour = new Date().getHours();
   let greeting =

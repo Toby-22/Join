@@ -1,6 +1,8 @@
 let groupedContacts = {};
 
-// loads the contacts and renders it
+/**
+ * loads the contacts and renders it
+ */
 async function init() {
   await includeHTML();
   setActiveTab();
@@ -10,14 +12,18 @@ async function init() {
   render();
 }
 
-// renders gets the contacts
+/**
+ * renders gets the contacts
+ */
 function render() {
   sortContacts();
   sortContactsInGroup();
   renderContacts();
 }
 
-// sorts the contacts alphabetically
+/**
+ * sorts the contacts alphabetically
+ */
 function sortContacts() {
   contacts.sort((a, b) => {
     let nameA = a.name.toUpperCase();
@@ -32,7 +38,9 @@ function sortContacts() {
   });
 }
 
-// groups the contacts by the main letter
+/**
+ * groups the contacts by the main letter
+ */
 function sortContactsInGroup() {
   groupedContacts = {};
   contacts.forEach((contact) => {
@@ -40,6 +48,10 @@ function sortContactsInGroup() {
   });
 }
 
+/**
+ * sort all contacts
+ * @param {number} contact 
+ */
 function sortContactInGroup(contact) {
   if (!contact.disabled) {
     let initialLetter = contact.name.charAt(0).toUpperCase();
@@ -50,7 +62,9 @@ function sortContactInGroup(contact) {
   }
 }
 
-// renders the contacts
+/**
+ * renders the contacts
+ */
 function renderContacts() {
   document.getElementById("contact-list").innerHTML = ``;
   for (let initialLetter in groupedContacts) {
@@ -60,7 +74,11 @@ function renderContacts() {
   }
 }
 
-// renders every contact for every main letter
+
+/**
+ * renders every contact for every main letter
+ * @param {string} initialLetter 
+ */
 function renderForEachContact(initialLetter) {
   groupedContacts[initialLetter].forEach((contact, index) => {
     document.getElementById("contact-list").innerHTML += editContaktList(
@@ -71,7 +89,11 @@ function renderForEachContact(initialLetter) {
   });
 }
 
-// displays the respective contact information when checked
+
+/**
+ * displays the respective contact information when checked
+ * @param {number} id 
+ */
 function showContactInformation(id) {
   contacts.forEach((element, i) => {
     if (element.id === id) {
@@ -118,14 +140,19 @@ function getInitials(contact) {
   return initials;
 }
 
-// deactivates the respective contact
+/**
+ * deactivates the respective contact
+ * @param {number} index 
+ */
 async function deleteContact(index) {
   contacts[index].disabled = true;
   render();
   await storeData("contacts", contacts); // saves the contacts on the server
 }
 
-// clear the details shown
+/**
+ * clear the details shown
+ */
 function clearInfo() {
   let elements = [
     "namecircle",
@@ -141,26 +168,39 @@ function clearInfo() {
   });
 }
 
-// adds or removes a class from the respective id
+/**
+ * adds or removes a class from the respective id
+ * @param {element} element 
+ * @param {class} className 
+ */
 function toggleClass(element, className) {
   document.getElementById(element).classList.toggle(className);
 }
 
-// automatically fills the input fields when editing
+/**
+ * automatically fills the input fields when editing
+ * @param {number} index 
+ */
 function fillEdit(index) {
   getFillEdit(index);
   addCircleInitial(contacts[index], "circle_edit");
   document.getElementById("edit-btn").innerHTML = renderContactEdit(index);
 }
 
-// gets the data for the input fields when editing
+/**
+ * gets the data for the input fields when editing
+ * @param {number} index 
+ */
 function getFillEdit(index) {
   document.getElementById("nameEditInput").value = contacts[index].name;
   document.getElementById("phoneEditInput").value = contacts[index].phone;
   document.getElementById("emailEditInput").value = contacts[index].email;
 }
 
-// the respective contact is replaced
+/**
+ * the respective contact is replaced
+ * @param {number} index 
+ */
 async function updateContact(index) {
   let contactData = getContactData(index);
   contacts[index] = contactData;
@@ -188,6 +228,11 @@ function getContactData(index) {
   return contactData;
 }
 
+/**
+ * gets the color number for a user
+ * @param {number} id 
+ * @returns color number
+ */
 function getColorNumberFromId(id) {
   let sum = 0;
   for (let i = 0; i < id.length; i++) {
@@ -224,14 +269,19 @@ function capitalizeName(sentence) {
   return name.join(" ");
 }
 
-// Empties the various input fields
+/**
+ * Empties the various input fields
+ * @param {number} i 
+ */
 function cancelAdd(i) {
   document.getElementById(`name${i}Input`).value = "";
   document.getElementById(`phone${i}Input`).value = "";
   document.getElementById(`email${i}Input`).value = "";
 }
 
-// saves the new user
+/**
+ * saves the new user
+ */
 async function saveContact() {
   let newContact = getValue("Add");
   if (!checkAlreadyExists(newContact)) {
@@ -254,6 +304,10 @@ async function createNewContact(newContact) {
   contacts.push(newContact);
 }
 
+/**
+ * return all user Ids as a array
+ * @returns user ids
+ */
 function allUserIDs() {
   return contacts.map((contact) => contact.id);
 }
@@ -272,7 +326,10 @@ function checkAlreadyExists(newContact) {
   });
 }
 
-// contact confirmed window
+/**
+ * contact confirmed window
+ * @param {number} id 
+ */
 function confirmContact(id) {
   toggleClass(id, "show");
   setTimeout(function () {

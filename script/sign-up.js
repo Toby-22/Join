@@ -13,13 +13,18 @@ import {
 // =================================================================
 window.addEventListener("DOMContentLoaded", initSignup);
 
+/**
+ * init the sign up site
+ */
 function initSignup() {
   includeHTML();
   initInputValidation();
   initSignupEvent();
 }
 
-// This function is used to initialize the validation if the input fields.
+/**
+ * This function is used to initialize the validation if the input fields.
+ */
 function initInputValidation() {
   addPasswordEye();
   validateEmail();
@@ -77,6 +82,9 @@ async function handleSuccessfulSignUp(contact) {
   window.location.href = "login.html";
 }
 
+/**
+ * get the input values for sign up
+ */
 function getInputValues(contact) {
   const nameInput = document.querySelector("#name_input");
   const emailInput = document.querySelector("#email_input");

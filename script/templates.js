@@ -49,14 +49,24 @@ function editContaktList(contact, id) {
   `;
 }
 
+/**
+ * render textinfo div
+ * @returns contac information
+ */
 function renderTextInfo() {
   return `<div>Contact Information</div>`;
 }
 
+/**
+ * render a circle icon
+ */
 function renderCircel() {
   return `<div class="circle_info flex-box-centered" id="circle-info"></div>`;
 }
 
+/**
+ * render the drop down menu
+ */
 function renderDrop(i) {
   return `
     <div class="contact_info_editbar p-8" onclick="toggleClass('contact-edit', 'show'), fillEdit('${i}')">
@@ -72,6 +82,9 @@ function renderDrop(i) {
   `;
 }
 
+/**
+ * render edit fields
+ */
 function renderEdit(i) {
   return `
     <div class="contact_info_editbar" onclick="toggleClass('contact-edit', 'show'), fillEdit('${i}')">
@@ -87,6 +100,9 @@ function renderEdit(i) {
   `;
 }
 
+/**
+ * render email div
+ */
 function renderMail(element) {
   return `
     <div class="contact_email">
@@ -96,6 +112,9 @@ function renderMail(element) {
   `;
 }
 
+/**
+ * render phone div
+ */
 function renderPhone(element) {
   if (element.phone.length > 1) {
     return `

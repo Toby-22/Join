@@ -37,10 +37,10 @@
                             <img class="icon-size" id="logo-urgent" src="./assets/icons/prio-urgent-orange.svg" />
                         </div>
                     </div>
-                    <div class="dflex-row prio-fields" id="prio-medium" onclick="markPrioField('medium')">
+                    <div class="dflex-row prio-fields activatePrioMedium" id="prio-medium" onclick="markPrioField('medium')">
                         Medium
                         <div class="prio-icon-container">
-                            <img class="icon-size" id="logo-medium" src="./assets/icons/prio-medium-yellow.svg" />
+                            <img class="icon-size" id="logo-medium" src="./assets/icons/prio-medium.svg" />
                         </div>
                     </div>
                     <div class="dflex-row prio-fields" id="prio-low" onclick="markPrioField('low')">
@@ -59,9 +59,8 @@
             <!--Auswahl der Kategorie des Tasks-->
             <div class="dflex-column">
                 <label class="pad-bot8px">Category</label>
-                <div class="input-field background-white assignee-field">
-                    <label id="category" class="input-assignee" onclick="dropDownCategory()">Select task
-                        category</label>
+                <div id="category-div" class="input-field background-white assignee-field">
+                    <label id="category" class="input-assignee" onclick="dropDownCategory()">Select task category</label>
                     <button id="drop-button" type="button" class="drop-down-button" onclick="dropDownCategory()">
                         <img src="./assets/icons/caret-down-solid.svg" />
                     </button>

@@ -11,6 +11,9 @@ import {
 // =================================================================
 window.addEventListener("DOMContentLoaded", initLogin);
 
+/**
+ * is inits the login site
+ */
 function initLogin() {
   localStorage.clear();
   includeHTML();
@@ -18,7 +21,9 @@ function initLogin() {
   initLoginEvents();
 }
 
-// This function is used to initialize the validation if the input fields.
+/**
+ * This function is used to initialize the validation if the input fields.
+ */
 function initInputValidation() {
   addPasswordEye();
   validateEmail();

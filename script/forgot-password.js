@@ -8,6 +8,9 @@ import {
 // =================================================================
 window.addEventListener("DOMContentLoaded", initForgotPassword);
 
+/**
+ * inits the functions by fogetten password
+ */
 function initForgotPassword() {
   includeHTML();
   initInputValidation();

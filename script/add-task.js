@@ -1,4 +1,4 @@
-let actualActivePriority = "";
+let actualActivePriority = "medium";
 let addedAssignees = [];
 let isOpenContactList = false;
 let addedSubtasks = [];
@@ -48,6 +48,7 @@ function renderCategoryOptions() {
     spanElement.addEventListener("click", () => {
       const selectedCategory = element;
       document.getElementById("category").innerHTML = selectedCategory;
+      document.getElementById("category").classList.remove("category-empty");
       closeCategoryDropDown();
     });
 
@@ -67,16 +68,34 @@ function closeCategoryDropDown() {
  * This function takes the information from the add-task form and creat a task
  */
 async function addTask() {
-  let actualTask = captureProptertiesOfTask();
-  tasks.push(actualTask);
+  if(validateFilds()){
+    let actualTask = captureProptertiesOfTask();
+    tasks.push(actualTask);
 
-  //save Data in Backend
-  await storeData("tasks", tasks);
-  clearForm();
-  try {
-    closeModalBox();
-  } catch (error) {}
-  window.location.href = `./board.html`;
+    //save Data in Backend
+    await storeData("tasks", tasks);
+    clearForm();
+    try {
+      closeModalBox();
+    } catch (error) {}
+    window.location.href = `./board.html`;
+  }
+}
+
+/**
+ * returns true if a category is choosen
+ * @returns boolean
+ */
+function validateFilds(){
+  let categorieField = document.getElementById("category");
+  if(actualActivePriority == ""){
+    console.log("Priorität ist ein Pflichfeld")
+  }else if(categorieField.innerHTML == "Select task category" || categorieField.innerHTML == "Category is required"){
+    categorieField.innerHTML = "Category is required";
+    categorieField.classList.add("category-empty");
+  }else{
+    return true;
+  }
 }
 
 /**
@@ -142,7 +161,7 @@ function createTaskId() {
 }
 
 /**
- * Changes time format from ddmmyyyy in Unix format
+ * Changes time format from ddmmyyyy in Unix formatresetPrioField
  */
 function changeTimeFormatUnix(dateIsoFormat) {
   let date = new Date(dateIsoFormat);
@@ -182,7 +201,7 @@ function markPrioField(prioType) {
  * Resets the prio fields
  */
 function resetPrioField() {
-  actualActivePriority = "";
+  actualActivePriority = "medium";
   resetPrioFieldHtml();
 }
 
@@ -197,18 +216,50 @@ function resetAssigneeField() {
   addedAssignees = [];
 }
 
+
 /**
  * Render the Contacs in the Assignee Field
  */
 function renderContacts() {
+  event.stopPropagation();
   let contactDiv = document.getElementById("contacts");
-  if (isOpenContactList == false) {
+  if (!isOpenContactList) {
     isOpenContactList = true;
     contactDiv.classList.remove("dnone");
+    document.addEventListener("click", closeContactsOnClick);
   } else {
     isOpenContactList = false;
     contactDiv.classList.add("dnone");
+    document.removeEventListener("click", closeContactsOnClick);
   }
+  if (!contactsAlreadyLoaded) {
+    contacts.forEach((element, index) => {
+      showContactlist(element, index);
+    });
+    contactsAlreadyLoaded = true;
+  }
+}
+
+/**
+ * this function close the contactlist bei click anywhere
+ */
+function closeContactsOnClick(event) {
+  let contactDiv = document.getElementById("contacts");
+
+  if (!contactDiv.contains(event.target)) {
+    isOpenContactList = false;
+    contactDiv.classList.add("dnone");
+    document.removeEventListener("click", closeContactsOnClick);
+  }
+}
+
+
+/**
+ * Render the Contacs in the Assignee Field in the Edit form
+ */
+function renderContactsinForm() {
+  let contactDiv = document.getElementById("contacts");
+  isOpenContactList = false;
 
   if (contactsAlreadyLoaded == false) {
     contacts.forEach((element, index) => {
@@ -217,6 +268,7 @@ function renderContacts() {
     contactsAlreadyLoaded = true;
   }
 }
+
 
 /**
  * extract the initials from the first and surname
@@ -337,6 +389,8 @@ function renderSubtasks() {
 function clearForm() {
   document.getElementById("addTaskForm").reset();
   resetPrioField();
+  setPrioButtonMedium();
+  actualActivePriority = "medium"; 
   resetAssigneeField();
   closeCategoryDropDown();
   addedSubtasks = [];
@@ -344,6 +398,7 @@ function clearForm() {
   document.getElementById("printSubtasks").innerHTML = "";
   document.getElementById("assignee").innerHTML = `Select contacts to assign`;
   document.getElementById("category").innerHTML = `Select task category`;
+  document.getElementById("category").classList.remove("category-empty");
 }
 
 /**
@@ -383,7 +438,7 @@ function saveEditSubtask(id) {
  * Add selected Users to the array AddedUsers and show it in the form
  */
 function selectAssigneefromExistingTask() {
-  renderContacts();
+  renderContactsinForm();
   for (let id = 0; id < addedAssignees.length; id++) {
     const userId = addedAssignees[id];
     const userInformation = contacts.filter((t) => t["id"] == userId)[0];

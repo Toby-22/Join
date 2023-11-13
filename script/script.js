@@ -213,7 +213,10 @@ function closeModalBox() {
 }
 
 // User badge functions =================================================================
-// generates contact circle icon with initials
+
+/**
+ * generates contact circle icon with initials
+ */
 function renderCircleIconWithInitials(contactId, parentDivId, circleId) {
   let contact = contacts.filter((c) => c.id == contactId)[0];
   document.getElementById(parentDivId).innerHTML =
@@ -221,20 +224,30 @@ function renderCircleIconWithInitials(contactId, parentDivId, circleId) {
   addCircleInitial(contact, circleId);
 }
 
+/**
+ * generates the circle icon
+ * @param {number} circleId 
+ * @returns html
+ */
 function generateCircleIconHTML(circleId) {
   return /*html*/ `
     <div id="${circleId}" class="circle"></div>
   `;
 }
 
-// loads the contacts from the server
+/**
+ * loads the contacts from the server
+ * @returns array of contacts
+ */
 async function loadContactsFromServer() {
   let datas = await loadData("contacts");
   contacts = JSON.parse(datas);
   return contacts;
 }
 
-// adds color and initials to the circle
+/**
+ * adds color and initials to the circle
+ */
 function addCircleInitial(contact, id) {
   // the initials are no longer created, its now taken from contacts.initials
   const circle = document.getElementById(id); //the initials are created and added when contact is made
@@ -242,7 +255,9 @@ function addCircleInitial(contact, id) {
   circle.style.backgroundColor = `var(--profile-color-${contact.color})`;
 }
 
-// unix date to local date string
+/**
+ * convert unix date to local date string
+ */
 function dateToIsoString(unixTimeStamp) {
   let date = new Date(unixTimeStamp);
   let isoDatum = date.toLocaleDateString();
@@ -284,6 +299,9 @@ async function loadTasksfromBackend() {
   tasks = JSON.parse(datas);
 }
 
+/**
+ * set the disclaimer
+ */
 function disclaimer() {
   const cookies = document.cookie.split("; ");
   for (let i = 0; i < cookies.length; i++) {
@@ -295,6 +313,9 @@ function disclaimer() {
   }
 }
 
+/**
+ * disabale the navigation
+ */
 function navdisabled() {
   const nav = document.querySelector(".nav-btn-container");
   const header = document.querySelector(".mobile-header-content");
@@ -304,6 +325,9 @@ function navdisabled() {
   }
 }
 
+/**
+ * link to the index
+ */
 function linkToIndex() {
   const links = document.querySelectorAll('a[href="./dashboard.html"]');
   for (let i = 0; i < links.length; i++) {
