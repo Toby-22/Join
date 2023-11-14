@@ -7,7 +7,7 @@ let password1 = ""; // Variable zum Speichern des ersten eingegebenen Passworts
 export function validateRequiredElements() {
   const elements = getRequiredElements();
   let status = 0;
-
+  debugger;
   elements.forEach((element) => {
     let elementType = element.dataset.inputType;
     if (elementType === "checkbox") {
@@ -86,6 +86,20 @@ export async function validateEmail() {
 }
 
 /**
+ * tests if mail adress is valid
+ * @returns boolean
+ */
+export function testMailAddAt(){
+  let mailadress = document.getElementById('email_input');
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if(emailRegex.test(mailadress.value)){
+      return true;
+    }else{
+      return false;
+    };
+}
+
+/**
  * This function is used to validate the lenght of the input value of the password input element (like the attribute: minLength="").
  * It also checks if the password is required and sets a custom error message.
  * The input fields must have a data attribute (data-input-type="password").
@@ -119,11 +133,18 @@ export async function validatePassword() {
  */
 export function validatePasswordComplince(){
   const passwordFields = getPasswordFields();
+  debugger;
   let passwords = [];
   passwordFields.forEach(element => {
     passwords.push(element.value);
   });
-  return(passwords[0] == passwords[1])
+  if(passwords[0] !== passwords[1]){
+    document.getElementById('notEqual').classList.remove('d-none');
+    return false;
+  }else{
+    document.getElementById('notEqual').classList.add('d-none');
+    return true;
+  }
 }
 
 

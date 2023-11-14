@@ -8,10 +8,12 @@ import {
   displayErrorMessage,
   validateRequiredElements,
   validatePasswordComplince,
+  testMailAddAt  
 } from "./input-validation.js";
 
 // =================================================================
 window.addEventListener("DOMContentLoaded", initSignup);
+
 
 /**
  * init the sign up site
@@ -38,12 +40,10 @@ function initSignupEvent() {
   const signUpBtn = document.querySelector("#sign_up_btn");
 
   signUpBtn.addEventListener("click", (e) => {
-    if (validatePasswordComplince()){
+    if (validatePasswordComplince() && testMailAddAt()){
     e.preventDefault();
     submitSignUp();
-    }else{
-      document.getElementById('notEqual').classList.remove('d-none');
-    };
+    }
   });
 }
 
