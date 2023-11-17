@@ -6,6 +6,7 @@ function insertSubtask() {
     renderSubtasks();
     insertfield.classList.add("activeSubtaskField");
     showIconsInSubtaskInput();
+    document.getElementById('subtask-field').focus();
   }
   
   /**
@@ -17,8 +18,8 @@ function insertSubtask() {
     insertfield.classList.remove("activeSubtaskField");
   
     insertfield.innerHTML = `
-      <input type="text" id="subtask-field" placeholder="Add new subtask" onclick="insertSubtask()"/>
-        <img src="./assets/icons/capa 1 dark.svg" onclick="insertSubtask()"/>
+      <input type="text" id="subtask-field" placeholder="Add new subtask" onclick="insertSubtask()" />
+      <img src="./assets/icons/capa 1 dark.svg" onclick="insertSubtask()" />
     `;
   }
   
@@ -64,6 +65,8 @@ function insertSubtask() {
     document.getElementById("assignee").innerHTML = `Select contacts to assign`;
     document.getElementById("category").innerHTML = `Select task category`;
     document.getElementById("category").classList.remove("category-empty");
+    document.getElementById('added-contacts').classList.add("d-none");
+    document.getElementById('added-contacts').innerHTML = "";
   }
   
   /**

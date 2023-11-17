@@ -176,7 +176,7 @@ function showAddedSubTasks(i, element) {
   document.getElementById("printSubtasks").innerHTML += `
     <div class="list-subtasks">
       <li class="list-points" id=${i}>${element.subtask}</li>
-      <div class="list-subtasks">
+      <div class="subtask-edit">
         <img class="pointer" src="./assets/icons/edit-dark.svg" onclick="editSubtask(${i})"/>
         <div class="middle-line"></div>
         <img class="pointer" src="./assets/icons/trash.svg" onclick="deleteSubtask(${i})"/>

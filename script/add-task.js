@@ -4,6 +4,7 @@ let isOpenContactList = false;
 let addedSubtasks = [];
 let contactsAlreadyLoaded = false;
 
+
 /**
  * Written by WS
  * Loads all necessary functions to render the page correctly.
@@ -226,10 +227,12 @@ function renderContacts() {
   if (!isOpenContactList) {
     isOpenContactList = true;
     contactDiv.classList.remove("dnone");
+    document.getElementById('added-contacts').classList.add("d-none");
     document.addEventListener("click", closeContactsOnClick);
   } else {
     isOpenContactList = false;
     contactDiv.classList.add("dnone");
+    document.getElementById('added-contacts').classList.remove("d-none");
     document.removeEventListener("click", closeContactsOnClick);
   }
   if (!contactsAlreadyLoaded) {
@@ -249,6 +252,7 @@ function closeContactsOnClick(event) {
   if (!contactDiv.contains(event.target)) {
     isOpenContactList = false;
     contactDiv.classList.add("dnone");
+    document.getElementById('added-contacts').classList.remove("d-none");
     document.removeEventListener("click", closeContactsOnClick);
   }
 }
@@ -305,6 +309,7 @@ function addAssigneeToTask(userId) {
     }
   }
   showFirstAddedAssigneeInForm();
+  showAddedUsers();
 }
 
 /**
@@ -319,6 +324,17 @@ function showFirstAddedAssigneeInForm() {
     document.getElementById("assignee").innerHTML = `${firstUserName.name}`;
   }
 }
+
+function showAddedUsers(){
+  let addedAssigneesUl = document.getElementById('added-contacts');
+  addedAssigneesUl.innerHTML = "";
+  // addedAssigneesUl.classList.remove('d-none');
+  addedAssignees.forEach(element => {
+    let user = contacts.filter((t) => t["id"] == element)[0];
+    addedAssigneesUl.innerHTML += `<li class="list-points" id=${user.id}>${user.name}</li>`
+  });
+}
+
 
 /**
  * extract the value of the downloaded Object from the Server

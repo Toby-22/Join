@@ -7,7 +7,6 @@ let password1 = ""; // Variable zum Speichern des ersten eingegebenen Passworts
 export function validateRequiredElements() {
   const elements = getRequiredElements();
   let status = 0;
-  debugger;
   elements.forEach((element) => {
     let elementType = element.dataset.inputType;
     if (elementType === "checkbox") {
@@ -133,7 +132,6 @@ export async function validatePassword() {
  */
 export function validatePasswordComplince(){
   const passwordFields = getPasswordFields();
-  debugger;
   let passwords = [];
   passwordFields.forEach(element => {
     passwords.push(element.value);
@@ -147,6 +145,23 @@ export function validatePasswordComplince(){
   }
 }
 
+/**
+ * it checks if all input fields filled
+ */
+export function allInputFieldsFilled(){
+  let nameInput = document.getElementById('name_input');
+  let email_input = document.getElementById('email_input');
+  let password_input = document.getElementById('password_input');
+  let confirm_password_input = document.getElementById('confirm_password_input');
+  let inputRequiredClass = Array.from(document.getElementsByClassName('input-required'));
+  if(nameInput.value == "" && email_input.value == "" && password_input.value == "" && confirm_password_input.value ==""){
+    inputRequiredClass.forEach(element => {
+      element.removeAttribute("hidden");
+    });
+  }else{
+    return true;
+  }
+}
 
 /**
  * This function is used to add a eventlistener to change the password visibility.

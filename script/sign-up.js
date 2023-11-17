@@ -8,7 +8,8 @@ import {
   displayErrorMessage,
   validateRequiredElements,
   validatePasswordComplince,
-  testMailAddAt  
+  testMailAddAt,
+  allInputFieldsFilled  
 } from "./input-validation.js";
 
 // =================================================================
@@ -38,9 +39,8 @@ function initInputValidation() {
  */
 function initSignupEvent() {
   const signUpBtn = document.querySelector("#sign_up_btn");
-
   signUpBtn.addEventListener("click", (e) => {
-    if (validatePasswordComplince() && testMailAddAt()){
+    if (allInputFieldsFilled() && validatePasswordComplince() && testMailAddAt()){
     e.preventDefault();
     submitSignUp();
     }
